@@ -12,8 +12,7 @@
   "default_locale": "en",
   "permissions": [
     "tabs",
-    "tabGroups",
-    "windows"
+    "tabGroups"
   ],
   "action": {
     "default_popup": "popup.html",
