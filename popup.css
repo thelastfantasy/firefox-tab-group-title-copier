@@ -125,28 +125,28 @@ h2 {
     box-shadow: 0 1px 2px rgba(0, 168, 255, 0.2);
 }
 
-/* Text copy icon (document with lines) */
+/* Text copy icon (document icon using SVG) */
 .copy-button.text::before {
     content: '';
     display: block;
-    width: 14px;
-    height: 16px;
-    background:
-        linear-gradient(to right, white 100%, transparent 0) 0 0 / 10px 2px no-repeat,
-        linear-gradient(to right, white 100%, transparent 0) 0 4px / 14px 2px no-repeat,
-        linear-gradient(to right, white 100%, transparent 0) 0 8px / 12px 2px no-repeat,
-        linear-gradient(to right, white 100%, transparent 0) 0 12px / 8px 2px no-repeat;
-    border: 1px solid white;
-    border-radius: 1px;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='white' d='M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-/* JSON copy icon (brackets) */
+/* JSON copy icon (code icon using SVG) */
 .copy-button.json::before {
-    content: '{ }';
-    font-family: monospace;
-    font-size: 10px;
-    font-weight: bold;
-    line-height: 1;
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath fill='white' d='M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .tabs-list {
