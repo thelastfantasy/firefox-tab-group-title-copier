@@ -8,7 +8,7 @@
     "description": "拡張機能の説明"
   },
   "popupTitle": {
-    "message": "タブタイトルコピーツール",
+    "message": "タブグループタイトルをコピー",
     "description": "ポップアップのタイトル"
   },
   "loading": {
