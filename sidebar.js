@@ -29,8 +29,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             windowInfo[window.id] = window;
         }
 
-        // Sort windows by ID (usually creation order)
+        // Sort windows by ID (usually creation order) and assign sequential numbers
         const sortedWindowIds = Object.keys(groupsByWindow).sort((a, b) => a - b);
+        let windowCounter = 1;
 
         for (const windowId of sortedWindowIds) {
             const windowGroups = groupsByWindow[windowId];
@@ -45,7 +46,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             const windowTitle = document.createElement('span');
             windowTitle.className = 'window-title';
             const window = windowInfo[windowId];
-            windowTitle.textContent = `Window ${windowId}` + (window.incognito ? ' (Private)' : '');
+
+            // Use i18n for window title with sequential numbering
+            const windowNumber = windowCounter++;
+            const windowTitleText = browser.i18n.getMessage('windowTitle', [windowNumber]);
+            const privateText = window.incognito ? browser.i18n.getMessage('privateWindow') : '';
+            windowTitle.textContent = windowTitleText + privateText;
 
             windowHeader.appendChild(windowTitle);
             windowElement.appendChild(windowHeader);
@@ -90,6 +96,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const tabElement = document.createElement('div');
                     tabElement.className = 'tab-item';
                     tabElement.textContent = tab.title;
+                    tabElement.setAttribute('data-full-title', tab.title);
                     tabsList.appendChild(tabElement);
                 });
             }

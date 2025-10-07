@@ -46,5 +46,13 @@
   "noTabsFound": {
     "message": "此组中未找到标签页",
     "description": "组中未找到标签页时的消息"
+  },
+  "windowTitle": {
+    "message": "窗口 $NUMBER$",
+    "description": "带编号的窗口标题"
+  },
+  "privateWindow": {
+    "message": " (隐私)",
+    "description": "隐私窗口指示器"
   }
 }

@@ -46,5 +46,13 @@
   "noTabsFound": {
     "message": "No tabs found in this group",
     "description": "Message when no tabs found in group"
+  },
+  "windowTitle": {
+    "message": "Window $NUMBER$",
+    "description": "Window title with number"
+  },
+  "privateWindow": {
+    "message": " (Private)",
+    "description": "Private window indicator"
   }
 }
