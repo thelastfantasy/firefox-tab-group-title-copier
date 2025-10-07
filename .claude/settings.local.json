@@ -16,7 +16,11 @@
       "WebFetch(domain:svgtopng.com)",
       "Bash(magick:*)",
       "Bash(convert:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git archive:*)"
     ],
     "deny": [],
     "ask": []
