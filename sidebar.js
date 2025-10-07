@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         loadingElement.style.display = 'none';
 
-        // Sort tab groups by creation time (newest first)
-        tabGroups.sort((a, b) => b.id - a.id);
+        // Sort tab groups by their actual order in the browser
+        tabGroups.sort((a, b) => a.id - b.id);
 
         for (const group of tabGroups) {
             const groupElement = document.createElement('div');
