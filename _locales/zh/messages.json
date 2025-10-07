@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "标签页组标题复制器",
+    "description": "扩展名称"
+  },
+  "extensionDescription": {
+    "message": "复制标签页组中所有标签页的标题",
+    "description": "扩展描述"
+  },
+  "popupTitle": {
+    "message": "标签页标题复制器",
+    "description": "弹出窗口标题"
+  },
+  "loading": {
+    "message": "正在加载标签页组...",
+    "description": "加载中消息"
+  },
+  "noGroups": {
+    "message": "未找到标签页组",
+    "description": "没有标签页组时的消息"
+  },
+  "copyTitles": {
+    "message": "复制所有标签页标题",
+    "description": "复制按钮文本"
+  },
+  "copyTitlesTooltip": {
+    "message": "将此组中所有标签页标题复制到剪贴板",
+    "description": "复制按钮的提示文本"
+  },
+  "noTabs": {
+    "message": "此组中没有标签页",
+    "description": "组中没有标签页时的消息"
+  },
+  "copySuccess": {
+    "message": "✓ 已复制!",
+    "description": "复制成功消息"
+  },
+  "errorLoading": {
+    "message": "加载标签页组时出错",
+    "description": "加载失败时的错误消息"
+  },
+  "errorCopying": {
+    "message": "复制标签页标题时出错",
+    "description": "复制失败时的错误消息"
+  },
+  "noTabsFound": {
+    "message": "此组中未找到标签页",
+    "description": "组中未找到标签页时的消息"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "Tab Group Title Copier",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Copy all tab titles from tab groups",
+    "description": "Description of the extension"
+  },
+  "popupTitle": {
+    "message": "Tab Title Copier",
+    "description": "Title in popup"
+  },
+  "loading": {
+    "message": "Loading tab groups...",
+    "description": "Loading message"
+  },
+  "noGroups": {
+    "message": "No tab groups found",
+    "description": "Message when no tab groups exist"
+  },
+  "copyTitles": {
+    "message": "Copy All Tab Titles",
+    "description": "Copy button text"
+  },
+  "copyTitlesTooltip": {
+    "message": "Copy all tab titles in this group to clipboard",
+    "description": "Tooltip for copy button"
+  },
+  "noTabs": {
+    "message": "No tabs in this group",
+    "description": "Message when group has no tabs"
+  },
+  "copySuccess": {
+    "message": "✓ Copied!",
+    "description": "Copy success message"
+  },
+  "errorLoading": {
+    "message": "Error loading tab groups",
+    "description": "Error message when loading fails"
+  },
+  "errorCopying": {
+    "message": "Error copying tab titles",
+    "description": "Error message when copying fails"
+  },
+  "noTabsFound": {
+    "message": "No tabs found in this group",
+    "description": "Message when no tabs found in group"
+  }
+}

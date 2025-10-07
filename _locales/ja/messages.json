@@ -1,0 +1,50 @@
+{
+  "extensionName": {
+    "message": "タブグループタイトルコピーツール",
+    "description": "拡張機能の名前"
+  },
+  "extensionDescription": {
+    "message": "タブグループ内のすべてのタブのタイトルをコピーする",
+    "description": "拡張機能の説明"
+  },
+  "popupTitle": {
+    "message": "タブタイトルコピーツール",
+    "description": "ポップアップのタイトル"
+  },
+  "loading": {
+    "message": "タブグループを読み込み中...",
+    "description": "読み込み中のメッセージ"
+  },
+  "noGroups": {
+    "message": "タブグループが見つかりません",
+    "description": "タブグループがない場合のメッセージ"
+  },
+  "copyTitles": {
+    "message": "すべてのタブタイトルをコピー",
+    "description": "コピーボタンのテキスト"
+  },
+  "copyTitlesTooltip": {
+    "message": "このグループ内のすべてのタブタイトルをクリップボードにコピー",
+    "description": "コピーボタンのツールチップ"
+  },
+  "noTabs": {
+    "message": "このグループにタブがありません",
+    "description": "グループにタブがない場合のメッセージ"
+  },
+  "copySuccess": {
+    "message": "✓ コピーしました!",
+    "description": "コピー成功メッセージ"
+  },
+  "errorLoading": {
+    "message": "タブグループの読み込み中にエラーが発生しました",
+    "description": "読み込み失敗時のエラーメッセージ"
+  },
+  "errorCopying": {
+    "message": "タブタイトルのコピー中にエラーが発生しました",
+    "description": "コピー失敗時のエラーメッセージ"
+  },
+  "noTabsFound": {
+    "message": "このグループにタブが見つかりません",
+    "description": "グループにタブが見つからない場合のメッセージ"
+  }
+}
