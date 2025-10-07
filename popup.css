@@ -90,19 +90,28 @@ h2 {
     line-height: 1.2;
 }
 
+.copy-buttons {
+    display: flex;
+    gap: 4px;
+    margin-left: 8px;
+}
+
 .copy-button {
     background: linear-gradient(135deg, #0060df 0%, #0250bb 100%);
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 4px 10px;
-    font-size: 11px;
+    padding: 6px 8px;
+    font-size: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
-    margin-left: 8px;
-    white-space: nowrap;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 1px 2px rgba(0, 96, 223, 0.2);
+    min-width: 32px;
+    height: 24px;
+    position: relative;
 }
 
 .copy-button:hover {
@@ -114,6 +123,38 @@ h2 {
 .copy-button:active {
     transform: translateY(0);
     box-shadow: 0 1px 2px rgba(0, 96, 223, 0.2);
+}
+
+.copy-button.json {
+    background: linear-gradient(135deg, #00a8ff 0%, #0097e6 100%);
+}
+
+.copy-button.json:hover {
+    background: linear-gradient(135deg, #0097e6 0%, #0087d6 100%);
+}
+
+/* Text copy icon (document with lines) */
+.copy-button.text::before {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 16px;
+    background:
+        linear-gradient(to right, white 100%, transparent 0) 0 0 / 10px 2px no-repeat,
+        linear-gradient(to right, white 100%, transparent 0) 0 4px / 14px 2px no-repeat,
+        linear-gradient(to right, white 100%, transparent 0) 0 8px / 12px 2px no-repeat,
+        linear-gradient(to right, white 100%, transparent 0) 0 12px / 8px 2px no-repeat;
+    border: 1px solid white;
+    border-radius: 1px;
+}
+
+/* JSON copy icon (brackets) */
+.copy-button.json::before {
+    content: '{ }';
+    font-family: monospace;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
 }
 
 .tabs-list {

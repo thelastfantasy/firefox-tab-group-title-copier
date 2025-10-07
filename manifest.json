@@ -24,9 +24,4 @@
       "48": "icon.svg"
     }
   },
-  "sidebar_action": {
-    "default_panel": "sidebar.html",
-    "default_title": "__MSG_popupTitle__",
-    "default_icon": "icon.svg"
-  }
 }
