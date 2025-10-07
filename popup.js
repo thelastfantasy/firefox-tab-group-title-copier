@@ -13,10 +13,47 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         loadingElement.style.display = 'none';
 
-        // Sort tab groups by their actual order in the browser
-        tabGroups.sort((a, b) => a.id - b.id);
-
+        // Group tab groups by window
+        const groupsByWindow = {};
         for (const group of tabGroups) {
+            if (!groupsByWindow[group.windowId]) {
+                groupsByWindow[group.windowId] = [];
+            }
+            groupsByWindow[group.windowId].push(group);
+        }
+
+        // Get window information
+        const windows = await browser.windows.getAll();
+        const windowInfo = {};
+        for (const window of windows) {
+            windowInfo[window.id] = window;
+        }
+
+        // Sort windows by ID (usually creation order)
+        const sortedWindowIds = Object.keys(groupsByWindow).sort((a, b) => a - b);
+
+        for (const windowId of sortedWindowIds) {
+            const windowGroups = groupsByWindow[windowId];
+
+            // Create window header
+            const windowElement = document.createElement('div');
+            windowElement.className = 'window-group';
+
+            const windowHeader = document.createElement('div');
+            windowHeader.className = 'window-header';
+
+            const windowTitle = document.createElement('span');
+            windowTitle.className = 'window-title';
+            const window = windowInfo[windowId];
+            windowTitle.textContent = `Window ${windowId}` + (window.incognito ? ' (Private)' : '');
+
+            windowHeader.appendChild(windowTitle);
+            windowElement.appendChild(windowHeader);
+
+            // Sort groups within window
+            windowGroups.sort((a, b) => a.id - b.id);
+
+            for (const group of windowGroups) {
             const groupElement = document.createElement('div');
             groupElement.className = 'tab-group';
 
@@ -59,7 +96,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             groupElement.appendChild(groupHeader);
             groupElement.appendChild(tabsList);
-            tabGroupsList.appendChild(groupElement);
+            windowElement.appendChild(groupElement);
 
             // Add click handler to toggle tabs list
             groupHeader.addEventListener('click', (e) => {
@@ -67,6 +104,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     tabsList.style.display = tabsList.style.display === 'none' ? 'block' : 'none';
                 }
             });
+        }
+
+        tabGroupsList.appendChild(windowElement);
         }
     } catch (error) {
         console.error('Error loading tab groups:', error);
