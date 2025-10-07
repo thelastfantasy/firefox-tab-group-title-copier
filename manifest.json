@@ -3,6 +3,12 @@
   "name": "__MSG_extensionName__",
   "version": "1.0",
   "description": "__MSG_extensionDescription__",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tab-group-title-copier@thelastfantasy.github.io",
+      "strict_min_version": "109.0"
+    }
+  },
   "default_locale": "en",
   "permissions": [
     "tabs",
