@@ -48,7 +48,7 @@
     "description": "グループにタブが見つからない場合のメッセージ"
   },
   "windowTitle": {
-    "message": "ウィンドウ $NUMBER$",
+    "message": "ウィンドウ $1",
     "description": "番号付きのウィンドウタイトル"
   },
   "privateWindow": {

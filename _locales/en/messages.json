@@ -48,7 +48,7 @@
     "description": "Message when no tabs found in group"
   },
   "windowTitle": {
-    "message": "Window $NUMBER$",
+    "message": "Window $1",
     "description": "Window title with number"
   },
   "privateWindow": {

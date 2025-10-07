@@ -48,7 +48,7 @@
     "description": "组中未找到标签页时的消息"
   },
   "windowTitle": {
-    "message": "窗口 $NUMBER$",
+    "message": "窗口 $1",
     "description": "带编号的窗口标题"
   },
   "privateWindow": {
