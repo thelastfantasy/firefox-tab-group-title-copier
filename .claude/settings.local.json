@@ -4,7 +4,19 @@
       "Bash(git --version)",
       "Bash(gh:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: Firefox Tab Group Title Copier extension\n\nFeatures:\n- Display all tab groups in popup and sidebar\n- Copy all tab titles from any group with one click\n- Multi-language support (English, Chinese, Japanese)\n- Clean, user-friendly interface\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(web-ext:*)",
+      "Bash(unzip:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nFix: Add extension ID for Manifest V3 compatibility\n\n- Added browser_specific_settings with gecko.id\n- Set minimum Firefox version to 109.0\n- Required for Firefox Add-ons submission\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nImprove: Update popup title to better reflect core functionality\n\n- Changed from generic \"Tab Title Copier\" to specific \"Copy Tab Group Titles\"\n- Better communicates the extension''s purpose of copying all titles from tab groups\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(zip:*)",
+      "Bash(tar:*)",
+      "WebFetch(domain:svgtopng.com)",
+      "Bash(magick:*)",
+      "Bash(convert:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

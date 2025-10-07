@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 emptyMessage.textContent = browser.i18n.getMessage('noTabs');
                 tabsList.appendChild(emptyMessage);
             } else {
-                tabs.forEach(tab => {
+                tabs.forEach((tab, index) => {
                     const tabElement = document.createElement('div');
                     tabElement.className = 'tab-item';
                     tabElement.textContent = tab.title;
-                    tabElement.setAttribute('data-full-title', tab.title);
+                    tabElement.title = tab.title; // Add title attribute for tooltip
                     tabsList.appendChild(tabElement);
                 });
             }
