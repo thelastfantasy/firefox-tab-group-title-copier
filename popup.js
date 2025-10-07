@@ -70,14 +70,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             groupTitle.className = 'group-title';
             groupTitle.textContent = group.title || `Group ${group.id}`;
 
-            const copyButton = document.createElement('button');
-            copyButton.className = 'copy-button';
-            copyButton.textContent = browser.i18n.getMessage('copyTitles');
-            copyButton.title = browser.i18n.getMessage('copyTitlesTooltip');
-            copyButton.addEventListener('click', () => copyTabTitles(group.id));
+            const copyButtons = document.createElement('div');
+            copyButtons.className = 'copy-buttons';
+
+            // JSON copy button (left)
+            const jsonCopyButton = document.createElement('button');
+            jsonCopyButton.className = 'copy-button json';
+            jsonCopyButton.title = 'Copy as JSON (title + URL)';
+            jsonCopyButton.addEventListener('click', () => copyTabTitlesAsJSON(group.id));
+
+            // Text copy button (right)
+            const textCopyButton = document.createElement('button');
+            textCopyButton.className = 'copy-button text';
+            textCopyButton.title = browser.i18n.getMessage('copyTitlesTooltip');
+            textCopyButton.addEventListener('click', () => copyTabTitles(group.id));
+
+            copyButtons.appendChild(jsonCopyButton);
+            copyButtons.appendChild(textCopyButton);
 
             groupHeader.appendChild(groupTitle);
-            groupHeader.appendChild(copyButton);
+            groupHeader.appendChild(copyButtons);
 
             const tabsList = document.createElement('div');
             tabsList.className = 'tabs-list';
@@ -92,11 +104,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 emptyMessage.textContent = browser.i18n.getMessage('noTabs');
                 tabsList.appendChild(emptyMessage);
             } else {
-                tabs.forEach(tab => {
+                tabs.forEach((tab, index) => {
                     const tabElement = document.createElement('div');
                     tabElement.className = 'tab-item';
                     tabElement.textContent = tab.title;
-                    tabElement.setAttribute('data-full-title', tab.title);
+                    tabElement.title = tab.title; // Add title attribute for tooltip
                     tabsList.appendChild(tabElement);
                 });
             }
@@ -107,7 +119,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // Add click handler to toggle tabs list
             groupHeader.addEventListener('click', (e) => {
-                if (e.target !== copyButton) {
+                // Only toggle if click is not on copy buttons
+                if (!copyButtons.contains(e.target)) {
                     tabsList.style.display = tabsList.style.display === 'none' ? 'block' : 'none';
                 }
             });
@@ -135,6 +148,27 @@ async function copyTabTitles(groupId) {
     } catch (error) {
         console.error('Error copying tab titles:', error);
         alert(browser.i18n.getMessage('errorCopying'));
+    }
+}
+
+async function copyTabTitlesAsJSON(groupId) {
+    try {
+        const tabs = await browser.tabs.query({ groupId: groupId });
+        const tabData = tabs.map(tab => ({
+            title: tab.title,
+            url: tab.url
+        }));
+
+        if (tabData.length > 0) {
+            const jsonData = JSON.stringify(tabData, null, 2);
+            await navigator.clipboard.writeText(jsonData);
+            showCopySuccess();
+        } else {
+            alert(browser.i18n.getMessage('noTabsFound'));
+        }
+    } catch (error) {
+        console.error('Error copying tab titles as JSON:', error);
+        alert('Error copying tab titles as JSON');
     }
 }
 

@@ -90,30 +90,63 @@ h2 {
     line-height: 1.2;
 }
 
+.copy-buttons {
+    display: flex;
+    gap: 4px;
+    margin-left: 8px;
+}
+
 .copy-button {
-    background: linear-gradient(135deg, #0060df 0%, #0250bb 100%);
+    background: linear-gradient(135deg, #00a8ff 0%, #0097e6 100%);
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 4px 10px;
-    font-size: 11px;
+    padding: 6px 8px;
+    font-size: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
-    margin-left: 8px;
-    white-space: nowrap;
-    font-weight: 500;
-    box-shadow: 0 1px 2px rgba(0, 96, 223, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(0, 168, 255, 0.2);
+    min-width: 32px;
+    height: 24px;
+    position: relative;
 }
 
 .copy-button:hover {
-    background: linear-gradient(135deg, #0250bb 0%, #004099 100%);
-    box-shadow: 0 2px 4px rgba(0, 96, 223, 0.3);
+    background: linear-gradient(135deg, #0097e6 0%, #0087d6 100%);
+    box-shadow: 0 2px 4px rgba(0, 168, 255, 0.3);
     transform: translateY(-1px);
 }
 
 .copy-button:active {
     transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 96, 223, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 168, 255, 0.2);
+}
+
+/* Text copy icon (document icon using SVG) */
+.copy-button.text::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='white' d='M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* JSON copy icon (code icon using SVG) */
+.copy-button.json::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath fill='white' d='M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .tabs-list {
@@ -139,45 +172,25 @@ h2 {
     text-overflow: ellipsis;
     position: relative;
     cursor: default;
-    max-height: 1.3em;
+    min-height: 1.3em;
 }
 
 .tab-item:nth-child(odd) {
-    background-color: #f8f9fa;
+    background-color: #f0f4f8;
+    border-left: 2px solid #e1e8f0;
 }
 
 .tab-item:nth-child(even) {
     background-color: #ffffff;
+    border-left: 2px solid #f8f9fa;
 }
 
 .tab-item:hover {
     background-color: #e3f2fd !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: help;
 }
 
-/* Natural overlay for full title display */
-.tab-item:hover::before {
-    content: attr(data-full-title);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #e3f2fd;
-    color: #333;
-    padding: 6px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    line-height: 1.3;
-    z-index: 5;
-    white-space: normal;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #bbdefb;
-    max-height: none;
-    overflow: visible;
-}
 
 .tab-item:last-child {
     margin-bottom: 0;

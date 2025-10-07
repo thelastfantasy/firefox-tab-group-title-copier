@@ -12,8 +12,7 @@
   "default_locale": "en",
   "permissions": [
     "tabs",
-    "tabGroups",
-    "windows"
+    "tabGroups"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -23,10 +22,5 @@
       "32": "icon.svg",
       "48": "icon.svg"
     }
-  },
-  "sidebar_action": {
-    "default_panel": "sidebar.html",
-    "default_title": "__MSG_popupTitle__",
-    "default_icon": "icon.svg"
   }
 }
