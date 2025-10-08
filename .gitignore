@@ -1,5 +1,7 @@
 # Firefox extension specific
 *.xpi
+*.zip
+*.tar.gz
 web-ext-artifacts/
 
 # OS generated files

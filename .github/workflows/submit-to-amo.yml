@@ -1,0 +1,54 @@
+name: Release Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install web-ext
+        run: npm install -g web-ext
+
+      - name: Build extension
+        run: web-ext build --overwrite-dest --filename=tab_group_title_copier-${{ github.ref_name }}.xpi
+
+      - name: Package source code
+        run: |
+          git archive --format=zip --output=firefox-tab-group-title-copier-source-${{ github.ref_name }}.zip HEAD
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            web-ext-artifacts/tab_group_title_copier-${{ github.ref_name }}.xpi
+            firefox-tab-group-title-copier-source-${{ github.ref_name }}.zip
+          body: |
+            ## Version ${{ github.ref_name }}
+
+            Firefox extension for copying all tab titles from tab groups.
+
+            ### Files:
+            - `tab_group_title_copier-${{ github.ref_name }}.xpi` - Signed Firefox extension
+            - `firefox-tab-group-title-copier-source-${{ github.ref_name }}.zip` - Source code
+
+            See [CHANGELOG.md](https://github.com/thelastfantasy/firefox-tab-group-title-copier/blob/main/CHANGELOG.md) for detailed changes.
+
+      - name: Submit to AMO
+        run: |
+          web-ext sign \
+            --api-key=${{ secrets.AMO_API_KEY }} \
+            --api-secret=${{ secrets.AMO_API_SECRET }} \
+            --source-dir=. \
+            --channel=listed
