@@ -1,0 +1,40 @@
+name: Submit to AMO
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install web-ext
+        run: npm install -g web-ext
+
+      - name: Build extension
+        run: web-ext build --overwrite-dest --filename=tab_group_title_copier-${{ github.ref_name }}.xpi
+
+      - name: Submit to AMO
+        run: |
+          web-ext sign \
+            --api-key=${{ secrets.AMO_API_KEY }} \
+            --api-secret=${{ secrets.AMO_API_SECRET }} \
+            --source-dir=. \
+            --channel=listed
+
+      - name: Upload signed extension
+        uses: actions/upload-artifact@v4
+        with:
+          name: signed-extension
+          path: web-ext-artifacts/*.xpi
+          retention-days: 30
