@@ -1,4 +1,4 @@
-name: Submit to AMO
+name: Release Extension
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 jobs:
-  submit:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,6 +24,27 @@ jobs:
       - name: Build extension
         run: web-ext build --overwrite-dest --filename=tab_group_title_copier-${{ github.ref_name }}.xpi
 
+      - name: Package source code
+        run: |
+          git archive --format=zip --output=firefox-tab-group-title-copier-source-${{ github.ref_name }}.zip HEAD
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            web-ext-artifacts/tab_group_title_copier-${{ github.ref_name }}.xpi
+            firefox-tab-group-title-copier-source-${{ github.ref_name }}.zip
+          body: |
+            ## Version ${{ github.ref_name }}
+
+            Firefox extension for copying all tab titles from tab groups.
+
+            ### Files:
+            - `tab_group_title_copier-${{ github.ref_name }}.xpi` - Signed Firefox extension
+            - `firefox-tab-group-title-copier-source-${{ github.ref_name }}.zip` - Source code
+
+            See [CHANGELOG.md](https://github.com/thelastfantasy/firefox-tab-group-title-copier/blob/main/CHANGELOG.md) for detailed changes.
+
       - name: Submit to AMO
         run: |
           web-ext sign \
@@ -31,10 +52,3 @@ jobs:
             --api-secret=${{ secrets.AMO_API_SECRET }} \
             --source-dir=. \
             --channel=listed
-
-      - name: Upload signed extension
-        uses: actions/upload-artifact@v4
-        with:
-          name: signed-extension
-          path: web-ext-artifacts/*.xpi
-          retention-days: 30
