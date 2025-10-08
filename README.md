@@ -78,6 +78,12 @@ This extension requires the following permissions:
 - `tabs`: To access tab information and titles
 - `tabGroups`: To access tab group information
 
+## Support
+
+If you find this extension useful, consider supporting its development:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/jade913)
+
 ## License
 
 MIT License
