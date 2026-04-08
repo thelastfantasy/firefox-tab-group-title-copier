@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2026-04-08
+
+### Fixed
+- Unnamed tab groups now correctly display "Group N" as fallback (was showing empty string)
+
 ## [1.2.0] - 2026-04-08
 
 ### Added

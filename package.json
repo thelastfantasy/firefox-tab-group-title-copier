@@ -1,6 +1,6 @@
 {
   "name": "firefox-tab-group-title-copier",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Firefox extension to copy all tab titles from tab groups",
   "private": true,
   "scripts": {
