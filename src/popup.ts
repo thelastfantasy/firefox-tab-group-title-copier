@@ -114,6 +114,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             tabElement.className = 'tab-item'
             tabElement.textContent = tab.title ?? ''
             tabElement.title = tab.title ?? ''
+            if (tab.id !== undefined) {
+              tabElement.addEventListener('click', () => focusTab(tab.id!, group.id, windowId))
+            }
             tabsList.appendChild(tabElement)
           }
         }
@@ -175,6 +178,18 @@ async function copyTabTitlesAsJSON(groupId: number): Promise<void> {
   } catch (error) {
     console.error('Error copying tab titles as JSON:', error)
     alert(browser.i18n.getMessage('errorCopying'))
+  }
+}
+
+async function focusTab(tabId: number, groupId: number, windowId: number): Promise<void> {
+  try {
+    // 先展开 group（若已折叠，激活 tab 后仍不可见）
+    await browser.tabGroups.update(groupId, { collapsed: false })
+    await browser.tabs.update(tabId, { active: true })
+    await browser.windows.update(windowId, { focused: true })
+    window.close()
+  } catch (error) {
+    console.error('Error focusing tab:', error)
   }
 }
 

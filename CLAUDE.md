@@ -5,14 +5,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run build        # Compile TypeScript + copy static assets to dist/
-npm run watch        # Watch mode (rebuild on change)
-npm run typecheck    # Type check only (no output files)
-npm run package      # Build + package as .xpi (output: web-ext-artifacts/)
-npm run dev          # Build + launch Firefox with extension loaded
+pnpm build        # Compile TypeScript + copy static assets to dist/
+pnpm watch        # Watch mode (rebuild on change)
+pnpm typecheck    # Type check only (no output files)
+pnpm package      # Build + package as .xpi (output: web-ext-artifacts/)
+pnpm dev          # Build + launch Firefox with extension loaded
 ```
 
-There are no tests. After editing source files, run `npm run typecheck` then `npm run build`.
+There are no tests. After editing source files, run `pnpm typecheck` then `pnpm build`.
 
 ## Architecture
 
@@ -39,12 +39,13 @@ Use `/bump-version` command to update both atomically.
 
 Releases are triggered exclusively by pushing a `v*` tag. Merging to `main` only runs the build CI.
 
-```bash
-# After /bump-version:
-git push && git push --tags   # triggers release.yml
-```
+Typical flow (main is protected — no direct commits):
+1. Develop feature on a branch
+2. Run `/bump-version` on the feature branch — updates files, commits, and creates the tag locally
+3. Push the branch and open a PR
+4. After the PR is merged, run `/release` to push the tag and trigger `release.yml`
 
-Or use `/release` command which includes pre-flight checks.
+Use `pnpm` for all package operations.
 
 `release.yml` builds from source, packages the XPI, creates a GitHub Release, and submits to AMO. The build is not minified — esbuild only transpiles TypeScript. Source archive via `git archive` is included for AMO review.
 
