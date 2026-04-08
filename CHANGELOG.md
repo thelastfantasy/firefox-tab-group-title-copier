@@ -6,7 +6,6 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Click on a tab in the popup to focus it in the browser (expands collapsed groups automatically)
-- workflow_dispatch dry-run mode for release.yml to test CI without publishing
 
 ## [1.1] - 2025-10-07
 
