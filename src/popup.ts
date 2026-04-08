@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const groupTitle = document.createElement('span')
         groupTitle.className = 'group-title'
-        groupTitle.textContent = group.title ?? `Group ${group.id}`
+        groupTitle.textContent = group.title || `Group ${group.id}`
 
         const copyButtons = document.createElement('div')
         copyButtons.className = 'copy-buttons'
