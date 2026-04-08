@@ -171,7 +171,7 @@ h2 {
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
-    cursor: default;
+    cursor: pointer;
     min-height: 1.3em;
 }
 
@@ -188,7 +188,7 @@ h2 {
 .tab-item:hover {
     background-color: #e3f2fd !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    cursor: help;
+    cursor: pointer;
 }
 
 

@@ -31,4 +31,4 @@ Bump the extension version. Follow these steps exactly:
    git tag vNEW_VERSION
    ```
 
-8. Tell the user: "版本已更新至 vNEW_VERSION。推送并触发发布：git push && git push --tags"
+8. Tell the user: "版本已更新至 vNEW_VERSION。完成 PR 合并后，运行 /release 推送 tag 触发发布。"
