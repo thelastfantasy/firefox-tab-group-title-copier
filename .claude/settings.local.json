@@ -21,7 +21,15 @@
       "Bash(git push:*)",
       "Bash(git pull:*)",
       "Bash(git archive:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "WebFetch(domain:ko-fi.com)",
+      "WebSearch",
+      "Bash(cp popup.html popup.css icon.svg icon.png manifest.json static/)",
+      "Bash(cp _locales/en/messages.json static/_locales/en/)",
+      "Bash(cp _locales/zh/messages.json static/_locales/zh/)",
+      "Bash(cp _locales/ja/messages.json static/_locales/ja/)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)"
     ],
     "deny": [],
     "ask": []
